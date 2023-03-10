@@ -3,5 +3,33 @@
 
 
 {% block content %}
-    <h1>This is a home Page</h1>
+
+<h1 align="center">Notes</h1>
+
+
+<form action="" method="POST">
+    <textarea name="note" id="note" class="form-control"></textarea> <br>
+    <div align="center">
+        <button type="submit" class="btn btn-primary">Add Note</button>
+    </div>
+</form>
+
+
+<br>
+
+
+<ul class="list-group">
+    {% for note in user.notes %}
+
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        {{ note.data }}
+
+        <button type="button" class="btn btn-primary" onClick="deleteNote({{ note.id }})">
+            <span class="badge bg-primary rounded-pill">&times;</span>
+        </button>
+
+    </li>
+    {% endfor %}
+</ul>
+
 {% endblock %}

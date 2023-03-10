@@ -26,7 +26,7 @@ def login():
         else:
             flash('Email Dos not exist!', category= 'error')
 
-    return render_template('login.html')
+    return render_template('login.html', user = current_user)
 
 
 
@@ -73,4 +73,4 @@ def sign_up():
             flash('Account Created!', category= 'success')
             return redirect(url_for('views.home'))
 
-    return render_template('sign_up.html')
+    return render_template('sign_up.html', user = current_user)
